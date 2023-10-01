@@ -1,20 +1,9 @@
-# grpc_tutorial
-
-### In this tutorial, we build a basic API using gRPC and protobufs in Go
-
-## Run `go run main.go` to run the app, run `go build main.go` to build an executable file.
-
-### Check out the Youtube Tutorial for this [Go Program](https://youtu.be/Y92WWaZJl24). Here is our [Youtube Channel](https://www.youtube.com/channel/UCYqCZOwHbnPwyjawKfE21wg) Subscribe for more content.
-
-### Check out our blog at [tensor-programming.com](http://tensor-programming.com/).
-
-### Our [Twitter](https://twitter.com/TensorProgram), our [facebook](https://www.facebook.com/Tensor-Programming-1197847143611799/) and our [Steemit](https://steemit.com/@tensor).
-
 Steps:
 1. mkdir proto
 2. touch service.proto
 3. vim service.proto
 4. add these lines
+```
 syntax = "proto3";
 
 package proto;
@@ -32,17 +21,18 @@ service AddService {
   rpc Add(Request) returns (Response);
   rpc Multiply(Request) returns (Response);
 }
-
+```
 
 5. cd ../
 6. pwd
 /home/soumen/lab/go-learn/test_grpc/grpc_tutorial
 7. protoc --proto_path=proto --go_out=plugins=grpc:proto service.proto
 8. ls -ltr proto/
-    soumen@UB:~/lab/go-learn/test_grpc/grpc_tutorial$ ll proto/
+```    soumen@UB:~/lab/go-learn/test_grpc/grpc_tutorial$ ll proto/
     total 16
     -rw-rw-r-- 1 soumen soumen  237 Sep 30 14:36 service.proto
     -rw-rw-r-- 1 soumen soumen 8245 Sep 30 15:10 service.pb.go
+```
 9. mkdir server:
 10. cd server:
     touch main.go
