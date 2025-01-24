@@ -4,7 +4,7 @@ Steps:
 3. vim service.proto
 4. add these lines
 
-```proto3
+```proto
 syntax = "proto3";
 
 package proto;
@@ -34,7 +34,7 @@ service AddService {
 soumen@UB:~/lab/go-learn/test_grpc/grpc_tutorial$ ll proto/
     total 16
     -rw-rw-r-- 1 soumen soumen  237 Sep 30 14:36 service.proto
-    -rw-rw-r-- 1 soumen soumen 8245 Sep 30 15:10 service.pb.go```
+    -rw-rw-r-- 1 soumen soumen 8245 Sep 30 15:10 service.pb.go
 ```
 9. mkdir server:
 10. cd server:
@@ -42,7 +42,7 @@ soumen@UB:~/lab/go-learn/test_grpc/grpc_tutorial$ ll proto/
     vim main.go
     add these lines
 
-    ```go
+```go
     package main
 
     import (
