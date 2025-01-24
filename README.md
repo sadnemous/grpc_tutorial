@@ -3,7 +3,9 @@ Steps:
 2. touch service.proto
 3. vim service.proto
 4. add these lines
-```syntax = "proto3";
+
+```proto3
+syntax = "proto3";
 
 package proto;
 
@@ -19,23 +21,29 @@ message Response {
 service AddService {
   rpc Add(Request) returns (Response);
   rpc Multiply(Request) returns (Response);
-}```
+}
+```
 
 5. cd ../
 6. pwd
 /home/soumen/lab/go-learn/test_grpc/grpc_tutorial
 7. protoc --proto_path=proto --go_out=plugins=grpc:proto service.proto
 8. ls -ltr proto/
-```soumen@UB:~/lab/go-learn/test_grpc/grpc_tutorial$ ll proto/
+
+```bash
+soumen@UB:~/lab/go-learn/test_grpc/grpc_tutorial$ ll proto/
     total 16
     -rw-rw-r-- 1 soumen soumen  237 Sep 30 14:36 service.proto
     -rw-rw-r-- 1 soumen soumen 8245 Sep 30 15:10 service.pb.go```
+```
 9. mkdir server:
 10. cd server:
     touch main.go
     vim main.go
     add these lines
-    ```package main
+
+    ```go
+    package main
 
     import (
         "context"
@@ -78,13 +86,15 @@ service AddService {
         result := a * b
 
         return &proto.Response{Result: result}, nil
-    }```
+    }
+```
 11. cd ../
 12. mkdir client
 13. cd client
 14. vim main.go
 15. add these lines
-        ```package main
+```go
+     package main
 
         import (
             "fmt"
@@ -156,7 +166,8 @@ service AddService {
                 log.Fatalf("Failed to run server: %v", err)
             }
 
-        }```
+        }
+```
 16. cd ../
 17. pwd
 18. mod init example.com/packages
